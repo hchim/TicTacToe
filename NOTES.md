@@ -104,3 +104,45 @@ Whenever `this.setState` is called, an update to the component is scheduled, cau
 the passed state update and rerender the component along with its descendants. When the component rerenders, 
 this.state.value will be 'X' so you’ll see an X in the grid.
 
+Technically, a container component is just a React component that uses store.subscribe() to read a part of the Redux 
+state tree and supply props to a presentational component it renders. You could write a container component by hand, 
+but we suggest instead generating container components with the React Redux library's connect() function, which provides 
+many useful optimizations to prevent unnecessary re-renders.
+
+To use `connect()`, you need to define a special function called mapStateToProps that tells how to transform the current 
+Redux store state into the props you want to pass to a presentational component you are wrapping. 
+
+```
+const getVisibleTodos = (todos, filter) => {
+  switch (filter) {
+    case 'SHOW_COMPLETED':
+      return todos.filter(t => t.completed)
+    case 'SHOW_ACTIVE':
+      return todos.filter(t => !t.completed)
+    case 'SHOW_ALL':
+    default:
+      return todos
+  }
+}
+​
+const mapStateToProps = state => {
+  return {
+    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+  }
+}
+```
+
+In addition to reading the state, container components can dispatch actions. In a similar fashion, you can define a function 
+called mapDispatchToProps() that receives the dispatch() method and returns callback props that you want to inject into the 
+presentational component. 
+
+```
+const mapDispatchToProps = dispatch => {
+  return {
+    onTodoClick: id => {
+      dispatch(toggleTodo(id))
+    }
+  }
+}
+```
+
