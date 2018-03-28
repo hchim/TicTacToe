@@ -27,14 +27,15 @@ function calculateWinner(board) {
 let initialState = {
     board: new Array(9),
     winner: null,
-    xIsNext: true
+    xIsNext: true,
+    steps: 0
 }
 
 export default function ticTacToe(state = initialState, action) {
     switch (action.type) {
         case MOVE:
             //do nothing if game over
-            if (state.winner) {
+            if (state.winner || state.steps === 9) {
                 return state;
             }
 
@@ -43,7 +44,8 @@ export default function ticTacToe(state = initialState, action) {
             return {
                 board: newBoard,
                 winner: calculateWinner(newBoard),
-                xIsNext: !state.xIsNext
+                xIsNext: !state.xIsNext,
+                steps: state.steps + 1
             }
         default:
             return state
