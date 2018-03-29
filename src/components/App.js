@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Toolbar, Card, ToolbarButton,Icon } from 'react-onsenui';
+import { Page, Toolbar, Card, ToolbarButton, Icon } from 'react-onsenui';
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 import '../index.css';
@@ -10,7 +10,7 @@ const App = () => {
     let renderToolbar = () => (
         <Toolbar>
             <div className="center">TicTacToe</div>
-            <div className="right">
+            <div className="left">
                 <ToolbarButton>
                     <Icon icon='ion-navicon, material:md-menu'></Icon>
                 </ToolbarButton>
