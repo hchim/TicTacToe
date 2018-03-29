@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import ticTacToe from './TicTacToe';
+import gameReducer from './gameReducer';
 
-const ticTacToeApp = combineReducers({
-    ticTacToe
+const reducers = combineReducers({
+    gameReducer
 });
 
-export default ticTacToeApp;
+export default reducers;

@@ -1,16 +1,16 @@
 import React from 'react';
-import { render } from 'react-dom'
+import ReactDom from 'react-dom'
 import { Provider } from 'react-redux'
 import App from './components/App';
-//import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux'
-import ticTacToeApp from './reducers'
+import reducers from './reducers'
 
-//registerServiceWorker();
+registerServiceWorker();
 
-let store = createStore(ticTacToeApp)
+let store = createStore(reducers)
 
-render(
+ReactDom.render(
     <Provider store={store}>
         <App />
     </Provider>,

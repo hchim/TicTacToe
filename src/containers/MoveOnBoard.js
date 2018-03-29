@@ -4,7 +4,7 @@ import Board from '../components/Board'
 
 const mapStateToProps = state => {
     return {
-        squares: state.ticTacToe.board
+        squares: state.gameReducer.board
     }
 }
 

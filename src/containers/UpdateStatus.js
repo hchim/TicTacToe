@@ -13,7 +13,7 @@ function getNewStatus(winner, xIsNext, steps) {
 
 const mapStateToProps = state => {
     return {
-        status: getNewStatus(state.ticTacToe.winner, state.ticTacToe.xIsNext, state.ticTacToe.steps)
+        status: getNewStatus(state.gameReducer.winner, state.gameReducer.xIsNext, state.gameReducer.steps)
     }
 }
 

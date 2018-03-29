@@ -9,7 +9,9 @@
     "redux": "^3.7.2",
     "react-redux": "^5.0.7",
     "prop-types": "^15.6.1",
-    "ajv": "^6.4.0"
+    "ajv": "^6.4.0",
+    "onsenui": "^2.9.2",
+    "react-onsenui": "^1.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
