@@ -1,4 +1,5 @@
 import React from 'react'
+import { Row, Col } from 'react-onsenui';
 import '../index.css'
 import Square from './Square'
 import PropTypes from 'prop-types'
@@ -10,21 +11,21 @@ const Board = ({squares, onSquareClick}) => {
         const boardCols = []
         for (let j = 0; j < 3; j++) {
             let symbol = squares[i * 3 + j]
-            boardCols.push(<Square key={i + "-" + j} symbol={symbol} onClick={() => onSquareClick(i, j)}/>)
+            boardCols.push(
+                <Col>
+                    <Square key={i + "-" + j} symbol={symbol} onClick={() => onSquareClick(i, j)}/>
+                </Col>
+            )
         }
 
         boardRows.push(
-            <div key={i.toString()} className="board-row">
+            <Row key={i.toString()} className="board-row">
                 {boardCols}
-            </div>
+            </Row>
         )
     }
 
-    return (
-        <div className="game-board">
-            {boardRows}
-        </div>
-    )
+    return boardRows;
 }
 
 Board.propTypes = {

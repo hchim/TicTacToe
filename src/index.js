@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom from 'react-dom'
+import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
@@ -10,7 +10,7 @@ registerServiceWorker();
 
 let store = createStore(reducers)
 
-ReactDom.render(
+ReactDOM.render(
     <Provider store={store}>
         <App />
     </Provider>,

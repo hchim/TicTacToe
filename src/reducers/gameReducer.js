@@ -34,13 +34,14 @@ let initialState = {
 export default function ticTacToe(state = initialState, action) {
     switch (action.type) {
         case MOVE:
+            let pos = action.row * 3 + action.col
             //do nothing if game over
-            if (state.winner || state.steps === 9) {
+            if (state.winner || state.steps === 9 || state.board[pos]) {
                 return state;
             }
 
             let newBoard = state.board.slice()
-            newBoard[action.row * 3 + action.col] = state.xIsNext ? 'X' : 'O'
+            newBoard[pos] = state.xIsNext ? 'X' : 'O'
             return {
                 board: newBoard,
                 winner: calculateWinner(newBoard),
